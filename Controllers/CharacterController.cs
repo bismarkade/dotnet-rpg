@@ -13,7 +13,7 @@ namespace dotnet_rpg.Controllers
         // private static Character knight = new Character();
         private static List<Character> characters = new List<Character>{
             new Character(),
-            new Character { Name = "Sam"}
+            new Character { Id = 1,  Name = "Sam"}
         };
       
 
@@ -28,15 +28,14 @@ namespace dotnet_rpg.Controllers
             return Ok(characters);
         }
 
+
         /*
          GET a single character
         */
-        
-        [HttpGet]
-        public ActionResult<List<Character>> GetSingle()
+        [HttpGet("{id}")]
+        public ActionResult<List<Character>> GetSingle(int id)
         {
-            // return Ok(knight);
-            return Ok(characters[0]);
+            return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
     }
 }
