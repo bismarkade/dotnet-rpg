@@ -30,7 +30,7 @@ namespace dotnet_rpg.Controllers
         */
         // allows us to send specific HTTP status code back to client together with requested data
         [HttpGet("GetAll")]
-        public async Task<ActionResult<List<Character>>> Get()
+        public async Task<ActionResult<ServiceResponse<List<Character>>>> Get()
         {
             // return Ok(knight);
             return Ok(await _characterService.GetAllCharacters());
@@ -41,7 +41,7 @@ namespace dotnet_rpg.Controllers
          GET a single character
         */
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Character>>> GetSingle(int id)
+        public async Task<ActionResult<ServiceResponse<List<Character>>>> GetSingle(int id)
         {
             return Ok(await _characterService.GetCharacterById(id));
         }
@@ -50,7 +50,7 @@ namespace dotnet_rpg.Controllers
         POST a character
         */
         [HttpPost]
-        public async Task<ActionResult<List<Character>>> AddCharacter(Character newCharacter)
+        public async Task<ActionResult<ServiceResponse<List<Character>>>> AddCharacter(Character newCharacter)
         {
             characters.Add(newCharacter);
             return Ok(await _characterService.AddCharacter(newCharacter));
