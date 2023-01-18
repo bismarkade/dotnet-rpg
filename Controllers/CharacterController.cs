@@ -41,6 +41,12 @@ namespace dotnet_rpg.Controllers
         /*
         POST a character
         */
+        [HttpPost]
+        public ActionResult<List<Character>> AddCharacter(Character newCharacter)
+        {
+            characters.Add(newCharacter);
+            return Ok(characters);
+        }
 
     
 
