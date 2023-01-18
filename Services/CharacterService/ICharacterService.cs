@@ -9,10 +9,10 @@ namespace dotnet_rpg.Services.CharacterService
     {
         // get all the 3 methods
         // Task --> creates async
-        Task<ServiceResponse<List<Character>>> GetAllCharacters();
+        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
 
-        Task<ServiceResponse<Character>> GetCharacterById(int id);
+        Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
 
-        Task<ServiceResponse<List<Character>>> AddCharacter(Character newCharacter);
+        Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
     }
 }
