@@ -12,6 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// register the automapper here
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
 // add the ICharacterService to builder scope
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 
