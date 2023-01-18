@@ -10,7 +10,11 @@ namespace dotnet_rpg.Controllers
     [Route("api/[controller]")]
     public class CharacterController: ControllerBase
     {
-        private static Character knight = new Character();
+        // private static Character knight = new Character();
+        private static List<Character> characters = new List<Character>{
+            new Character(),
+            new Character { Name = "Sam"}
+        };
       
 
         /*
@@ -18,12 +22,11 @@ namespace dotnet_rpg.Controllers
         */
         // allows us to send specific HTTP status code back to client together with requested data
         [HttpGet]
-        // public IActionResult Get()
-        public ActionResult<Character> Get()
+        public ActionResult<List<Character>> Get()
       
         {
             // return Ok(knight);
-            return Ok(knight);
+            return Ok(characters);
         }
     }
 }
