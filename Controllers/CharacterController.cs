@@ -37,5 +37,12 @@ namespace dotnet_rpg.Controllers
         {
             return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
+
+        /*
+        POST a character
+        */
+
+    
+
     }
 }
