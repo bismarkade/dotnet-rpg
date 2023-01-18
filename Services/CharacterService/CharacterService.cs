@@ -35,7 +35,7 @@ namespace dotnet_rpg.Services.CharacterService
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             try
             {
-            var character = characters.First(c => c.Id == id);
+            var character = characters.FirstOrDefault(c => c.Id == id);
             if(character is null)
                 throw new Exception($"Character with Id '{id}' not found");
 
