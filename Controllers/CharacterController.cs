@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet_rpg.Controllers
@@ -15,7 +16,13 @@ namespace dotnet_rpg.Controllers
             new Character(),
             new Character { Id = 1,  Name = "Sam"}
         };
-      
+        private readonly ICharacterService _characterService;
+
+        // Character Construction
+        public CharacterController(ICharacterService characterService)
+        {
+            _characterService = characterService;
+        }
 
         /*
          GET list of  characters
