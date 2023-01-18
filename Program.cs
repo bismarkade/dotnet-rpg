@@ -10,6 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// add the ICharacterService to builder scope
+builder.Services.AddScoped<ICharacterService, CharacterService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

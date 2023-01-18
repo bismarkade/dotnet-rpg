@@ -18,12 +18,13 @@ namespace dotnet_rpg.Controllers
         };
         private readonly ICharacterService _characterService;
 
-        // Character Construction
+
+        // Character Constructor
         public CharacterController(ICharacterService characterService)
-        {
+      {
             _characterService = characterService;
         }
-
+        
         /*
          GET list of  characters
         */
@@ -32,7 +33,7 @@ namespace dotnet_rpg.Controllers
         public ActionResult<List<Character>> Get()
         {
             // return Ok(knight);
-            return Ok(characters);
+            return Ok(_characterService.GetAllCharacters());
         }
 
 
@@ -42,7 +43,7 @@ namespace dotnet_rpg.Controllers
         [HttpGet("{id}")]
         public ActionResult<List<Character>> GetSingle(int id)
         {
-            return Ok(characters.FirstOrDefault(c => c.Id == id));
+            return Ok(_characterService.GetCharacterById(id));
         }
 
         /*
@@ -52,10 +53,8 @@ namespace dotnet_rpg.Controllers
         public ActionResult<List<Character>> AddCharacter(Character newCharacter)
         {
             characters.Add(newCharacter);
-            return Ok(characters);
+            return Ok(_characterService.AddCharacter(newCharacter));
         }
-
-    
 
     }
 }
