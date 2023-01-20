@@ -16,7 +16,6 @@ namespace dotnet_rpg
             // option if _mapper.Map(updatedCharacter, character); is used in CharacterService
             // CreateMap<UpdateCharacterDto, Character>();
 
-
         }
     }
 }
